@@ -1,0 +1,43 @@
+2018-03-20 13:42:58 INFO: wng.enableStackTraces = "true"
+2018-03-20 13:42:58 INFO: wng.enableLogTraceback = "false"
+2018-03-20 13:42:58 INFO: logging enabled
+2018-03-20 13:42:58 INFO: wng.isTestnet = "false"
+2018-03-20 13:42:58 INFO: wng.isOffline = "false"
+2018-03-20 13:42:58 INFO: wng.maxRollback = "800"
+2018-03-20 13:42:58 INFO: wng.forgingDelay = "20"
+2018-03-20 13:42:58 INFO: wng.forgingSpeedup = "3"
+2018-03-20 13:42:58 INFO: wng.maxPrunableLifetime = "7776000"
+2018-03-20 13:42:58 INFO: wng.includeExpiredPrunable = "true"
+2018-03-20 13:42:58 INFO: wng.correctInvalidFees = "false"
+2018-03-20 13:42:58 INFO: wng.dbType = "h2"
+2018-03-20 13:42:58 INFO: wng.dbUrl not defined
+2018-03-20 13:42:58 INFO: wng.dbDir = "./wng_db/wng"
+2018-03-20 13:42:58 INFO: wng.dbParams = "DB_CLOSE_ON_EXIT=FALSE;MVCC=TRUE;MV_STORE=FALSE"
+2018-03-20 13:42:58 INFO: wng.dbUsername = "sa"
+2018-03-20 13:42:58 INFO: wng.dbPassword = "{not logged}"
+2018-03-20 13:42:58 INFO: Database directory is './wng_db"
+2018-03-20 13:42:58 INFO: Creating the SQL script
+2018-03-20 13:43:00 SEVERE: Unable to compact the database
+org.h2.jdbc.JdbcSQLException: Database may be already in use: "Locked by another process: /home/wng/wng_db/wng.lock.db". Possible solutions: close all other connection(s); use the server mode [90020-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.FileLock.getExceptionAlreadyInUse(FileLock.java:462)
+	at org.h2.store.FileLock.lockFile(FileLock.java:355)
+	at org.h2.store.FileLock.lock(FileLock.java:135)
+	at org.h2.engine.Database.open(Database.java:657)
+	at org.h2.engine.Database.openDatabase(Database.java:270)
+	at org.h2.engine.Database.<init>(Database.java:264)
+	at org.h2.engine.Engine.openSession(Engine.java:65)
+	at org.h2.engine.Engine.openSession(Engine.java:175)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:153)
+	at org.h2.engine.Engine.createSession(Engine.java:136)
+	at org.h2.engine.Engine.createSession(Engine.java:28)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:349)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:107)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at wng.tools.CompactDatabase.compactDatabase(CompactDatabase.java:159)
+	at wng.tools.CompactDatabase.main(CompactDatabase.java:56)
